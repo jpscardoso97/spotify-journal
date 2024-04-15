@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useSpotify } from "../context/SpotifyContext";
 import { RiHome5Fill, RiHome5Line } from "react-icons/ri";
 import { IoSearchOutline } from "react-icons/io5";
-import { IoMdList } from "react-icons/io";
+import { IoIosBook } from "react-icons/io";
 
 const activeLink = "bg-[#282828] text-white";
 const inactiveLink = "bg-transparent text-gray";
@@ -66,18 +66,15 @@ export default function Sidebar() {
             </a>
           </Link>
 
-          <Link href="/collection/playlists">
+          <Link href="/journal">
             <a>
               <li
                 className={`${
-                  router.pathname.includes("/collection") &&
-                  !router.pathname.includes("tracks")
-                    ? activeLink
-                    : inactiveLink
+                  router.pathname === "/journal" ? activeLink : inactiveLink
                 } flex items-center gap-3 p-2 text-sm rounded cursor-pointer  hover:text-white`}
               >
-                <IoMdList className="text-2xl" />
-                <span className="font-bold">Your Library</span>
+                <IoIosBook className="text-2xl" />
+                <span className="font-bold">Music Journal</span>
               </li>
             </a>
           </Link>
