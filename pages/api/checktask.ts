@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { getSession } from "next-auth/react";
-import { customPost } from "../../utils/customPost";
+import { customGet } from "../../utils/customGet";
 
 export default async function handler(
   req: NextApiRequest,
@@ -11,19 +11,16 @@ export default async function handler(
     return res.status(401).json({ error: "Unauthorized" });
   }
 
-  const { text } = req.body;
+  const { task_id } = req.query;
 
-  if (text === undefined) {
-    return res.status(400).json({ error: "Missing entry" });
+  if (task_id === undefined) {
+    return res.status(400).json({ error: "Missing task id" });
   }
 
-  const task = await customPost(
-    "http://localhost:5001/entries",
-    {
-      "entry": text
-    },
+  const taskStatus = await customGet(
+    `http://localhost:5001/status/${task_id}`,
     session
   );
 
-  res.status(200).json(task);
+  res.status(200).json(taskStatus);
 }

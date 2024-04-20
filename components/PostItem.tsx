@@ -4,15 +4,15 @@ interface PostItemProps {
     date: string;
     mood: string;
     playlistId: string;
-    text: string;
+    entry: string;
 }
-export default function PostList({ date, mood, playlistId, text }: PostItemProps) {
+export default function PostList({ date, mood, playlistId, entry }: PostItemProps) {
     return (
-        <Link href={`/playlist/${playlistId}`}>
+        playlistId && <Link key={playlistId} href={`/playlist/${playlistId}`}>
             <div className="transition duration-300 p-4 rounded cursor-pointer hover:bg-[#282828] bg-paper">
-                <h3 className="mt-5 font-bold truncate">{text}</h3>
-                <h6 className="text-sm truncate text-gray">{mood}</h6>
-                <h6 className="text-sm truncate text-gray">{date}</h6>
+                <h6 className="text-sm font-bold text-gray">{date}</h6>
+                <h6 className="text-sm text-gray"><b>Mood:</b> {mood}</h6>
+                <h6 className="mt-5">{entry}</h6>
             </div>
         </Link>
     );
