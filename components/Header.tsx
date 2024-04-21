@@ -18,7 +18,7 @@ export default function Header() {
 
   const logout = () => {
     setCurrentTrack(null);
-    signOut({ callbackUrl: "http://localhost:3000/login" });
+    signOut({ callbackUrl: "http://34.0.241.227:3000/login" });
   };
 
   if (router.pathname === "/login") {

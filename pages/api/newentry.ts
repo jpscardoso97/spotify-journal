@@ -18,7 +18,7 @@ export default async function handler(
   }
 
   const task = await customPost(
-    "http://localhost:5001/entries",
+    "http://34.0.241.227:5001/entries",
     {
       "entry": text
     },

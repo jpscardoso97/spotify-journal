@@ -18,7 +18,7 @@ export default async function handler(
   }
 
   const taskStatus = await customGet(
-    `http://localhost:5001/status/${task_id}`,
+    `http://34.0.241.227:5001/status/${task_id}`,
     session
   );
 

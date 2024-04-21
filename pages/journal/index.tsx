@@ -103,7 +103,7 @@ async function checkTaskStatus(taskId) {
 
 async function fetchEntries(session) {
     const entries = await customGet(
-        "http://localhost:5001/entries",
+        "http://34.0.241.227:5001/entries",
         session
       );
 
